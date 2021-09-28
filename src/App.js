@@ -1,6 +1,6 @@
 import Search from "./components/Search";
 import "./styles.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import youtubeApi from "./api/youtube"
 import VideoList from "./components/VideoList";
 import VideoPlayer from "./components/VideoPlayer";
@@ -27,6 +27,10 @@ function App() {
   setSelectedVideoId(response.data.items[0].id.videoId)
   console.log(videosMetaInfo, selectedVideoId)
  }
+
+ useEffect(() => {
+  onSearch("Manchester United");
+}, []);
 
  
  
