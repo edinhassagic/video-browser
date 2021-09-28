@@ -5,6 +5,7 @@ import youtubeApi from "./api/youtube"
 import VideoList from "./components/VideoList";
 import VideoPlayer from "./components/VideoPlayer";
 
+
 function App() {
 
  const [videosMetaInfo, setVideosMetaInfo] = useState([])
@@ -32,6 +33,7 @@ function App() {
   return (
     <div className="App">
       < Search onSearch={onSearch} />
+      
       < VideoList  onVideoSelected= {onVideoSelected}
        data = {videosMetaInfo}
       />
