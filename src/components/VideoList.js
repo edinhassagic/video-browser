@@ -2,11 +2,7 @@ import React from "react";
 
 import Video from "./Video";
 
-const VideoList = ({ data, onVideoSelected}) => {
-  
-
-  
-  
+const VideoList = ({ data, onVideoSelected }) => {
   return (
     <div className="video-list">
       <div style={{ padding: "20px 0" }}>
@@ -19,7 +15,6 @@ const VideoList = ({ data, onVideoSelected}) => {
       </div>
     </div>
   );
-  
 };
 
 export default VideoList;
