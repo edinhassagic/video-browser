@@ -49,7 +49,29 @@ html {
     display: none;
   }
 
+  .titl {
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .desc {
+    text-align: center;
+    font-size: 15px;
+  }
+
+  @media screen and (max-width: 544px) { 
+    .titl {
+      font-weight: bold;
+      text-align: center;
+      font-size: 8px;
+    }
   
+    .desc {
+      text-align: center;
+      font-size: 8px;
+    }
 
+    
 
+  }
   

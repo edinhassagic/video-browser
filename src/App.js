@@ -8,6 +8,8 @@ import VideoPlayer from "./components/VideoPlayer";
 function App() {
   const [videosMetaInfo, setVideosMetaInfo] = useState([]);
   const [selectedVideoId, setSelectedVideoId] = useState(null);
+  const [title, setTitle] = useState("")
+  const [description, setDescription] = useState("")
 
   const onVideoSelected = (videoId) => {
     setSelectedVideoId(videoId);
@@ -21,11 +23,13 @@ function App() {
     });
     setVideosMetaInfo(response.data.items);
     setSelectedVideoId(response.data.items[0].id.videoId);
-    console.log(videosMetaInfo, selectedVideoId);
+    setTitle(response.data.items[0].snippet.title);
+    setDescription(response.data.items[0].snippet.description);
+    console.log(videosMetaInfo, selectedVideoId,title,description);
   };
 
   useEffect(() => {
-    onSearch("Manchester United");
+    onSearch("ReactJS");
   }, []);
 
   return (
@@ -34,7 +38,7 @@ function App() {
 
       <VideoList onVideoSelected={onVideoSelected} data={videosMetaInfo} />
 
-      <VideoPlayer videoId={selectedVideoId} />
+      <VideoPlayer videoId={selectedVideoId} title={title} description={description} />
     </div>
   );
 }

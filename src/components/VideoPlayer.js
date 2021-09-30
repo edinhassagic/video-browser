@@ -1,6 +1,6 @@
 import React from "react";
 
-const VideoPlayer = ({ videoId }) => {
+const VideoPlayer = ({ videoId, description, title }) => {
   return (
     <div className="video-player">
       <iframe
@@ -10,9 +10,11 @@ const VideoPlayer = ({ videoId }) => {
         className="video-iframe"
         src={`https://www.youtube.com/embed/${videoId}`}
       />
-
-      <div>
-        <p></p>
+      <div className="titl">
+        {title}
+      </div>
+      <div className="desc">
+        {description}
       </div>
     </div>
   );
