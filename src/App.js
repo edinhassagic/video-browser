@@ -6,39 +6,50 @@ import VideoList from "./components/VideoList";
 import VideoPlayer from "./components/VideoPlayer";
 
 function App() {
-  const [videosMetaInfo, setVideosMetaInfo] = useState([]);
+  const [videos, setVideos] = useState([]);
   const [selectedVideoId, setSelectedVideoId] = useState(null);
-  const [title, setTitle] = useState("")
-  const [description, setDescription] = useState("")
+  const [title, setTitle] = useState("");
+  const [description, setDescription]= useState ("");
+  const [keyword, setKeyword] = useState("");
 
-  const onVideoSelected = (videoId) => {
+  const onVideoSelected = (videoId, description, title) => {
     setSelectedVideoId(videoId);
+    
+    setTitle(title);
+    setDescription(description);
   };
 
+  const submitHandler =(event)=>{
+    event.preventDefault();
+    onSearch(keyword);
+  }
+
   const onSearch = async (keyword) => {
+    if (keyword === undefined || keyword === '') {
+      keyword = 'ReactJS';
+  }
     const response = await youtubeApi.get("/search", {
       params: {
         q: keyword,
       },
     });
-    setVideosMetaInfo(response.data.items);
+    setVideos(response.data.items);
     setSelectedVideoId(response.data.items[0].id.videoId);
     setTitle(response.data.items[0].snippet.title);
     setDescription(response.data.items[0].snippet.description);
-    console.log(videosMetaInfo, selectedVideoId,title,description);
   };
 
   useEffect(() => {
-    onSearch("ReactJS");
+    onSearch(keyword);
   }, []);
 
   return (
     <div className="App">
-      <Search onSearch={onSearch} />
+      <Search submitHandler={submitHandler} setKeyword={setKeyword}/>
 
-      <VideoList onVideoSelected={onVideoSelected} data={videosMetaInfo} />
+      <VideoList onVideoSelected={onVideoSelected} videos={videos} />
 
-      <VideoPlayer videoId={selectedVideoId} title={title} description={description} />
+      <VideoPlayer videoId={selectedVideoId} videos={videos} title={title} description={description} />
     </div>
   );
 }
