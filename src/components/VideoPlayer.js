@@ -14,7 +14,8 @@ const VideoPlayer = ({ videoId, description, title }) => {
         {title}
       </div>
       <div className="desc">
-        {description}
+      {description}
+     
       </div>
     </div>
   );

@@ -29,12 +29,12 @@ const Video = ({ videos, onVideoSelected }) => {
         <div
           className="video"
           key={index}
-          onClick={() => {selectVideo(id.videoId, snippet.descrition, snippet.title)}}
+          onClick={() => {selectVideo(id.videoId, snippet.description, snippet.title)}}
         >
           <div className="title">{snippet.title}</div>
           
           <img src={snippet.thumbnails.high.url} alt={snippet.title} />
-          
+         
         </div>
       );
     })

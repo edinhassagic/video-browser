@@ -5,6 +5,7 @@ import youtubeApi from "./api/youtube";
 import VideoList from "./components/VideoList";
 import VideoPlayer from "./components/VideoPlayer";
 
+
 function App() {
   const [videos, setVideos] = useState([]);
   const [selectedVideoId, setSelectedVideoId] = useState(null);
@@ -45,11 +46,13 @@ function App() {
 
   return (
     <div className="App">
-      <Search submitHandler={submitHandler} setKeyword={setKeyword}/>
+      <Search submitHandler={submitHandler} setKeyword={setKeyword} />
 
       <VideoList onVideoSelected={onVideoSelected} videos={videos} />
 
-      <VideoPlayer videoId={selectedVideoId} videos={videos} title={title} description={description} />
+      <VideoPlayer  videoId={selectedVideoId} videos={videos} title={title} description={description} />
+
+     
     </div>
   );
 }

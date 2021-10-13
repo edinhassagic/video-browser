@@ -1,12 +1,13 @@
 import React from "react";
 // import { useState } from "react";
 
-export default function Search({ submitHandler, setKeyword }) {
+export default function Search({ submitHandler, setKeyword}) {
   // const [title, setTitle] = useState("");
 
   const onSearchChanged = (event) => {
     const _title = event.target.value;
     setKeyword(_title);
+    
   };
 
   
