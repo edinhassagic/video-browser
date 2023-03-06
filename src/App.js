@@ -27,7 +27,7 @@ function App() {
 
   const onSearch = async (keyword) => {
     if (keyword === undefined || keyword === '') {
-      keyword = 'ReactJS';
+      keyword = 'Bosnia nature';
   }
     const response = await youtubeApi.get("/search", {
       params: {

@@ -5,7 +5,7 @@ import Video from "./Video";
 const VideoList = ({ videos, onVideoSelected }) => {
   return (
     <div className="video-list">
-      <div style={{ padding: "20px 0" }}>
+      <div >
         <h3
           style={{ textAlign: "center", fontSize: "18px", fontWeight: "bold" }}
         >
